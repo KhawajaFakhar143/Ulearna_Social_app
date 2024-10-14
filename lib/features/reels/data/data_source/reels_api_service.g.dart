@@ -12,16 +12,14 @@ class _ReelsApiService implements ReelsApiService {
   _ReelsApiService(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://api.ulearna.com';
-  }
+  });
 
   final Dio _dio;
 
   String? baseUrl;
 
   @override
-  Future<HttpResponse<List<ReelsModel>>> fetchReels({
+  Future<HttpResponse<ReelsModel>> fetchReels({
     String? page,
     String? limit,
     String? location,
@@ -35,8 +33,8 @@ class _ReelsApiService implements ReelsApiService {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<HttpResponse<List<ReelsModel>>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<HttpResponse<ReelsModel>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -52,9 +50,7 @@ class _ReelsApiService implements ReelsApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    var value = _result.data!
-        .map((dynamic i) => ReelsModel.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = ReelsModel.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

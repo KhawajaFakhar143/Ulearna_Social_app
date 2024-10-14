@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -22,8 +23,10 @@ class ReelsRepositoryImp extends ReelsRepository {
           limit: limit, page: page, location: location);
 
       if (httpResponse.response.statusCode == HttpStatus.ok) {
-        return DataSuccess((httpResponse.data as ReelsModel).toEntity());
+        
+        return DataSuccess((httpResponse.data).toEntity());
       } else {
+       
         return DataFailed(DioException(
             error: httpResponse.response.statusMessage,
             response: httpResponse.response,
@@ -31,6 +34,7 @@ class ReelsRepositoryImp extends ReelsRepository {
             requestOptions: httpResponse.response.requestOptions));
       }
     } on DioException catch (e) {
+      log("ex res");
       return DataFailed(e);
     }
   }

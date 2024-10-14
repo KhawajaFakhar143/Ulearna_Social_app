@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class UlearnaApp extends StatefulWidget {
   const UlearnaApp({super.key});
 
@@ -8,6 +7,8 @@ class UlearnaApp extends StatefulWidget {
 }
 
 class _UlearnaAppState extends State<UlearnaApp> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,9 +17,8 @@ class _UlearnaAppState extends State<UlearnaApp> {
       ),
       body: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("Reels Dislay Here")
-      ],),
+        children: [Text("Reels Dislay Here")],
+      ),
     );
   }
 }

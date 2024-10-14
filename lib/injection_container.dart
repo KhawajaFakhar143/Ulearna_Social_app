@@ -1,3 +1,4 @@
+
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -12,7 +13,8 @@ import 'package:ulearna_social_app/features/reels/presentation/bloc/reels_bloc.d
 
 final sl = GetIt.instance;
 
-Future<void> initDependency({String? baseUrl}) async{
+void initDependency({String? baseUrl}) {
+ 
   sl.registerSingleton<Dio>(buildDioclient(base: baseUrl));
 
   //Dependencies
