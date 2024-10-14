@@ -2,7 +2,7 @@
 
 import 'package:ulearna_social_app/features/reels/domain/entities/reels_entity.dart';
 
-class ByteModel {
+class ReelsModel {
   final int id;
   final String title;
   final String url;
@@ -23,7 +23,7 @@ class ByteModel {
   final String byteUpdatedOn;
   final UserModel user;
 
-  ByteModel({
+  ReelsModel({
     required this.id,
     required this.title,
     required this.url,
@@ -45,8 +45,8 @@ class ByteModel {
     required this.user,
   });
 
-  factory ByteModel.fromJson(Map<String, dynamic> json) {
-    return ByteModel(
+  factory ReelsModel.fromJson(Map<String, dynamic> json) {
+    return ReelsModel(
       id: json['id'],
       title: json['title'],
       url: json['url'],

@@ -1,5 +1,7 @@
 
-class ReelsEntity {
+import 'package:equatable/equatable.dart';
+
+class ReelsEntity extends Equatable{
   final int id;
   final String title;
   final String videoUrl;
@@ -43,4 +45,28 @@ class ReelsEntity {
     required this.profilePicture,
     required this.designation,
   });
+  
+   @override
+  List<Object?> get props => [
+    id,
+    title,
+    videoUrl,
+    thumbnailUrl,
+    userId,
+    status,
+    slug,
+    categoryId,
+    views,
+    likes,
+    comments,
+    shares,
+    wishlists,
+    duration,
+    language,
+    createdBy,
+    createdAt,
+    updatedAt,
+    profilePicture,
+    designation
+  ];
 }
