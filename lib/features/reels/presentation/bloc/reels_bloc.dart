@@ -26,7 +26,7 @@ class ReelsBloc extends Bloc<ReelsEvent, ReelsState> {
     isFetching = true;
     final dataState = await _callGetReels(
         params:
-            ReelsCallParams(page: currentPage.toString(), country: "United States", limit: "10"));
+            ReelsCallParams(page: currentPage.toString(), country: "United States", limit: "5"));
 
     if (dataState is DataSuccess && dataState.data != null) {
       final newReels = dataState.data as List<ReelsEntity>;

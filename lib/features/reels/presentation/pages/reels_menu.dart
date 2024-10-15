@@ -4,6 +4,7 @@ import 'package:ulearna_social_app/core/app_strings/app_strings.dart';
 import 'package:ulearna_social_app/features/reels/presentation/bloc/reels_bloc.dart';
 import 'package:ulearna_social_app/features/reels/presentation/bloc/reels_event.dart';
 import 'package:ulearna_social_app/features/reels/presentation/bloc/reels_state.dart';
+import 'package:ulearna_social_app/features/reels/presentation/pages/reels_player_page.dart';
 import 'package:ulearna_social_app/features/reels/presentation/widgets/text_widget.dart';
 import 'package:ulearna_social_app/features/reels/presentation/widgets/thumnail_widget.dart';
 
@@ -40,7 +41,7 @@ class BuildData extends StatefulWidget {
 }
 
 class _BuildDataState extends State<BuildData> {
-   final ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -56,28 +57,38 @@ class _BuildDataState extends State<BuildData> {
   }
 
   void _onScroll() {
-    
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent * 0.9) {
-          BlocProvider.of<ReelsBloc>(context).add(FetchReels());
-     
+      BlocProvider.of<ReelsBloc>(context).add(FetchReels());
     }
   }
+
   @override
   Widget build(BuildContext context) {
     var data = context.read<ReelsBloc>().reelsData;
     return data.isNotEmpty
         ? ListView.builder(
-         controller: _scrollController,
+            controller: _scrollController,
             itemCount: data.length + 1,
             itemBuilder: (context, index) {
-              if (index > data.length-1) {
+              if (index > data.length - 1) {
                 return const ThumnailWidget(
                   isLoading: true,
                 );
               } else {
-                return ThumnailWidget(
-                  data: data[index],
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ReelsPage(
+                            initialVideoIndex: index,
+                          ),
+                        ));
+                  },
+                  child: ThumnailWidget(
+                    data: data[index],
+                  ),
                 );
               }
             },
