@@ -33,7 +33,7 @@ void initDependency({String? baseUrl}) {
 Dio buildDioclient({String? base}) {
   final dio = Dio()
     ..options = BaseOptions(
-      baseUrl: base ?? reelsApiBaseUrl,
+      baseUrl: base!,
       connectTimeout: const Duration(seconds: 30),
       receiveTimeout: const Duration(seconds: 30),
     );
