@@ -1,16 +1,64 @@
-# ulearna_social_app
+# Flutter Reels Application
 
-A new Flutter project.
+## Overview
+This Flutter application fetches and displays video data from an API, mimicking the reels experience with smooth scrolling and pagination. The app is designed with clean architecture, separating UI and business logic, and includes features like lazy loading, error handling, and more.
 
-## Getting Started
+### Key Features:
+- **API Integration**: Fetches data from an API using Retrofit(Inspired by android wrapper over Dio, and Dio is Wrapper over HTTP).
+- **Lazy Loading & Pagination**: Loads more videos as the user scrolls, with pagination implemented in both the reels menu and the reels playing screens.
+- **Error Handling**: Handles errors gracefully during API requests and JSON parsing.
+- **State Management**: Utilizes the BLoC pattern for managing states efficiently.
+- **Dependency Injection**: Uses `get_it` for managing dependencies.
+- **Clean Architecture**: Follows modular architecture for better code organization and separation of concerns.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Installing Code
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/reels-app.git
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2. **Add .env in the root directory**:   
+      Add .env in the root directory, and and the same **reelsApiBaseUrl=example_base_url.com** , also mentioned in the .env.example you will find in the root directory.
+
+1. **Simply Run**:
+   Now Simply Run the application in application by running comand or the defualt running tool for you IDE
+
+   **flutter run**     
+
+
+---
+
+## Sample Video
+
+ [Sample Video](https://streamable.com/00jdl5)
+
+---
+
+## Tech Stack
+
+- **Flutter**: Framework for cross-platform mobile development.
+- **Retrofit**: For making HTTP requests, offering clean code with rich annotations.
+- **get_it**: Dependency injection for managing dependencies.
+- **BLoC**: Business Logic Component for state management.
+- **Dart JSON Decoding**: For parsing JSON data retrieved from the API.
+
+---
+
+## Screens
+
+### 1. **Reels Menu Screen**
+   - Displays a list of videos.
+   - Implements pagination and lazy loading.
+
+### 2. **Reels Playing Screen**
+   - Full-screen video playing experience.
+   - Pagination is applied to load more videos as the user scrolls down.
+
+---
+
+## Folder Structure
+
+The project uses a **modular architecture** for better scalability and code management
+
