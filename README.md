@@ -30,6 +30,17 @@ This Flutter application fetches and displays video data from an API, mimicking 
 
 ---
 
+## Generating Build
+
+
+Generated Build is attached in the release section of this repository, under the **Debug-Build** **v1.0** , You can check the right side of the repo.
+
+**NOTE:** This is the debug build thats why you may see large build size
+
+
+
+---
+
 ## Sample Video
 
  [Sample Video](https://streamable.com/00jdl5)
