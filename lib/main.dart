@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:ulearna_social_app/features/reels/presentation/bloc/reels_bloc.dart';
+import 'package:ulearna_social_app/features/reels/presentation/bloc/reels_event.dart';
+import 'package:ulearna_social_app/injection_container.dart';
+import 'package:ulearna_social_app/ulearna_app.dart';
 
-void main() {
-  runApp(const UlearnaSocialApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+  initDependency(baseUrl: dotenv.env['reelsApiBaseUrl']!);
+  runApp(const App());
 }
 
-class UlearnaSocialApp extends StatefulWidget {
-  const UlearnaSocialApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
-  @override
-  State<UlearnaSocialApp> createState() => _UlearnaSocialAppState();
-}
-
-class _UlearnaSocialAppState extends State<UlearnaSocialApp> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ReelsBloc>(
+            create: (_) => sl<ReelsBloc>()..add(FetchReels())),
+      ],
+      child: const MaterialApp(
+        title: "Ulearna Social App",
+        home: UlearnaApp(),
+      ),
+    );
   }
 }
-
-
