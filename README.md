@@ -17,15 +17,15 @@ This Flutter application fetches and displays video data from an API, mimicking 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/reels-app.git
+   git clone git@github.com:KhawajaFakhar143/Ulearna_Social_app.git
 
 2. **Add .env in the root directory**:   
       Add .env in the root directory, and and the same **reelsApiBaseUrl=example_base_url.com** , also mentioned in the .env.example you will find in the root directory.
 
 1. **Simply Run**:
    Now Simply Run the application in application by running comand or the defualt running tool for you IDE
-
-   **flutter run**     
+   ```bash
+   flutter run    
 
 
 ---
