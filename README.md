@@ -43,7 +43,7 @@ Generated Build is attached in the release section of this repository, under the
 
 ## Sample Video
 
- [Sample Video](https://streamable.com/00jdl5)
+ [Sample Video](https://drive.google.com/file/d/1GU39nKVtiTRGKVgeYO5zc-Ep4WK7YTwO/view?usp=sharing)
 
 ---
 
